@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="time"] {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        form button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #219150;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Book Appointment at {{ hospital.name }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Patient Name" required><br>
+            <input type="number" name="age" placeholder="Age" required><br>
+            <input type="text" name="issue" placeholder="Health Issue" required><br>
+            <input type="time" name="time" required><br>
+            <button type="submit">Book</button>
+        </form>
+    </div>
+
+</body>
+</html>
